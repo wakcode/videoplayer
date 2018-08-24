@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
+        applicationId "com.demo.videoplayer"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        ndk {
-            abiFilters "arm64-v8a", "armeabi", "armeabi-v7a", "x86"
-        }
+        renderscriptTargetApi rootProject.ext.renderscriptTargetApi
+        renderscriptSupportModeEnabled true
     }
     buildTypes {
         release {
@@ -17,6 +16,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    sourceSets{
+        main{
+            jniLibs.srcDirs=['libs']
+        }
+    }
+
 }
 
 dependencies {
@@ -25,3 +41,4 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation project(':player')
 }
+
