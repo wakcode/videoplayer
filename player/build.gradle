@@ -2,26 +2,28 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 publish {
-    userOrg = 'wakcode'
-    groupId = 'com.wakcode.player.videoplayer'
+    repoName = 'videoplayer'
+    userOrg = 'qustjk'
+    groupId = 'com.baselib'
     artifactId = 'player'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.3'
     desc = 'VideoPlayerLib'
     website = 'https://github.com/wakcode/videoplayer'
 }
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.3"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -39,5 +41,5 @@ dependencies {
     implementation 'com.danikula:videocache:2.7.0'
     implementation 'com.google.android.exoplayer:exoplayer:2.7.3'
     implementation "com.android.support:appcompat-v7:$supportLibVersion"
-    api 'com.facebook.fresco:fresco:1.10.0'
+    implementation 'com.facebook.fresco:fresco:1.10.0'
 }

@@ -1,4 +1,4 @@
-package cn.jzvd;
+package com.baselib.player;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -26,9 +26,6 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
-import com.baselib.player.R;
 
 import java.lang.reflect.Constructor;
 import java.util.LinkedHashMap;

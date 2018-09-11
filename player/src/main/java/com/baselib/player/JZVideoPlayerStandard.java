@@ -1,4 +1,4 @@
-package cn.jzvd;
+package com.baselib.player;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -25,7 +26,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.baselib.player.R;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.generic.RoundingParams;
@@ -301,7 +301,7 @@ public class JZVideoPlayerStandard extends JZVideoPlayer {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             final LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.jz_layout_clarity, null);
 
-            OnClickListener mQualityListener = new OnClickListener() {
+            View.OnClickListener mQualityListener = new View.OnClickListener() {
                 public void onClick(View v) {
                     int index = (int) v.getTag();
                     onStatePreparingChangingUrl(index, getCurrentPositionWhenPlaying());
@@ -331,10 +331,10 @@ public class JZVideoPlayerStandard extends JZVideoPlayer {
                 }
             }
 
-            clarityPopWindow = new PopupWindow(layout, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);
+            clarityPopWindow = new PopupWindow(layout, FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT, true);
             clarityPopWindow.setContentView(layout);
             clarityPopWindow.showAsDropDown(clarity);
-            layout.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
+            layout.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
             clarityPopWindow.update(clarity, -40, 46, Math.round(layout.getMeasuredWidth() * 2), layout.getMeasuredHeight());
         } else if (i == R.id.retry_btn) {
             if (dataSourceObjects == null || JZUtils.getCurrentFromDataSource(dataSourceObjects, currentUrlMapIndex) == null) {

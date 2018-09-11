@@ -1,4 +1,4 @@
-package cn.jzvd;
+package com.baselib.player;
 
 import android.view.Surface;
 

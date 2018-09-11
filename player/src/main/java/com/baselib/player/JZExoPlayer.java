@@ -1,4 +1,4 @@
-package cn.jzvd;
+package com.baselib.player;
 
 import android.content.Context;
 import android.net.Uri;
@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.Surface;
 
-import com.baselib.player.R;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;

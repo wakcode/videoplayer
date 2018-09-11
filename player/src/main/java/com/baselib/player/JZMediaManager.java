@@ -1,4 +1,4 @@
-package cn.jzvd;
+package com.baselib.player;
 
 import android.graphics.SurfaceTexture;
 import android.os.Handler;

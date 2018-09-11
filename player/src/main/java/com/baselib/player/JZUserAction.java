@@ -1,4 +1,4 @@
-package cn.jzvd;
+package com.baselib.player;
 
 /**
  * Created by Nathen
