@@ -1,4 +1,4 @@
-package com.baselib.player;
+package cn.wakplayer;
 
 import android.graphics.SurfaceTexture;
 import android.os.Handler;

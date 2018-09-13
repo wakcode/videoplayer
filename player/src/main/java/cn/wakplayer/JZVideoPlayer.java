@@ -1,4 +1,4 @@
-package com.baselib.player;
+package cn.wakplayer;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -26,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import java.lang.reflect.Constructor;
 import java.util.LinkedHashMap;
@@ -404,7 +405,7 @@ public abstract class JZVideoPlayer extends FrameLayout implements View.OnClickL
 
     public void setUp(Object[] dataSourceObjects, int defaultUrlMapIndex, int screen, Object... objects) {
         if (this.dataSourceObjects != null && JZUtils.getCurrentFromDataSource(dataSourceObjects, currentUrlMapIndex) != null &&
-                JZUtils.isEqual(JZUtils.getCurrentFromDataSource(this.dataSourceObjects, currentUrlMapIndex), JZUtils.getCurrentFromDataSource(dataSourceObjects, currentUrlMapIndex))) {
+                JZUtils.isEqual(JZUtils.getCurrentFromDataSource(this.dataSourceObjects, currentUrlMapIndex),JZUtils.getCurrentFromDataSource(dataSourceObjects, currentUrlMapIndex))) {
             return;
         }
         if (isCurrentJZVD() && JZUtils.dataSourceObjectsContainsUri(dataSourceObjects, JZMediaManager.getCurrentDataSource())) {

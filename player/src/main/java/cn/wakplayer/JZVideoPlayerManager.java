@@ -1,4 +1,4 @@
-package com.baselib.player;
+package cn.wakplayer;
 
 /**
  * Put JZVideoPlayer into layout

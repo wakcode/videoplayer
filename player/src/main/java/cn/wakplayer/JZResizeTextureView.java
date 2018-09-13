@@ -1,4 +1,4 @@
-package com.baselib.player;
+package cn.wakplayer;
 
 import android.content.Context;
 import android.util.AttributeSet;

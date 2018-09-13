@@ -2,23 +2,26 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 publish {
-    repoName = 'videoplayer'
+
+    repoName = 'clib'
     userOrg = 'qustjk'
-    groupId = 'com.baselib'
+    groupId = 'cn.wakplayer'
     artifactId = 'player'
-    publishVersion = '1.0.3'
-    desc = 'VideoPlayerLib'
+    publishVersion = '1.0.0'
+    desc = 'a lib to play video'
     website = 'https://github.com/wakcode/videoplayer'
+    licences = ['Apache-2.0']
 }
 
 android {
+
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0.3"
+        versionName "1.0.0"
     }
 
     buildTypes {
@@ -33,7 +36,6 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
 }
 
 dependencies {

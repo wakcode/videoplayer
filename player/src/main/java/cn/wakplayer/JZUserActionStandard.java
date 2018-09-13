@@ -1,4 +1,4 @@
-package com.baselib.player;
+package cn.wakplayer;
 
 /**
  * Created by Nathen
