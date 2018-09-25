@@ -5,6 +5,7 @@ def jksProperties = new Properties()
 jksProperties.load(new FileInputStream(jksFile))
 
 android {
+
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     signingConfigs {
@@ -39,7 +40,7 @@ android {
     }
 
     dexOptions {
-        javaMaxHeapSize "4g"
+        javaMaxHeapSize '4g'
     }
 
     sourceSets{
@@ -53,5 +54,6 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation project(':player')
 }
 

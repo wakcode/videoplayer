@@ -1,6 +1,6 @@
 group = PROJ_GROUP
 version = PROJ_VERSION
-project.archivesBaseName = PROJ_ARTIFACTID
+project.archivesBaseName = PROJ_ARTIFICATID
 
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
@@ -12,7 +12,7 @@ task sourcesJar(type: Jar) {
 
 task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
-    classpath += configurations.compile
+    classpath += configurations.implementation
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
@@ -23,12 +23,12 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 
 javadoc {
     options {
-        encoding "UTF-8"
+        encoding 'UTF-8'
         charSet 'UTF-8'
         author true
         version true
-        links "http://docs.oracle.com/javase/8/docs/api"
-        title "$PROJ_NAME $PROJ_VERSION"
+        String packageListRef = "${android.sdkDirectory}/docs/reference/"
+        linksOffline 'http://d.android.com/reference/', packageListRef
     }
 }
 
@@ -41,13 +41,13 @@ install {
     repositories.mavenInstaller {
         pom.project {
             name PROJ_NAME
+            groupId PROJ_GROUP
+            artifactId PROJ_ARTIFICATID
+            version PROJ_VERSION
+            packaging 'aar'
             url PROJ_WEBSITEURL
             inceptionYear '2018'
-            packaging 'aar'
             description PROJ_DESCRIPTION
-            groupId PROJ_GROUP
-            artifactId PROJ_ARTIFACTID
-            version PROJ_VERSION
             licenses {
                 license {
                     name 'The Apache Software License, Version 2.0'
@@ -55,20 +55,18 @@ install {
                     distribution 'repo'
                 }
             }
-
             scm {
                 connection PROJ_VCSURL
-                developerConnection PROJ_VCSURL
                 url PROJ_WEBSITEURL
             }
 
-//            developers {
-//                developer {
-//                    id 'JiangKe'
-//                    name 'JiangKe'
-//                    email 'wak_jk@163.com'
-//                }
-//            }
+            developers {
+                developer {
+                    id 'Jiang Ke'
+                    name 'Jiang Ke'
+                    email 'wak_jk@163.com'
+                }
+            }
         }
     }
 }
@@ -80,14 +78,23 @@ bintray {
     key = properties.getProperty('BINTRAY_KEY')
     configurations = ['archives']
     dryRun = false
+    publish = true
     pkg {
-        repo = PROJ_NAME
+        repo = 'clib'
         name = PROJ_NAME
-        licenses = ["Apache-2.0"]
+        licenses = ['Apache-2.0']
         vcsUrl = PROJ_VCSURL
         websiteUrl = PROJ_WEBSITEURL
-        publish = true
 //        issueTrackerUrl = PROJ_ISSUETRACKERURL
+        publicDownloadNumbers = true
+        version {
+            name = PROJ_VERSION
+            desc = PROJ_DESCRIPTION
+            vcsTag = PROJ_VERSION
+            gpg {
+                sign = true
+            }
+        }
     }
 }
 
