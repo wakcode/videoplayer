@@ -1,4 +1,16 @@
 apply plugin: 'com.android.library'
+apply plugin: 'bintray-release'
+
+
+publish{
+    artifactId = 'videoplayer'
+    desc = 'videoplayer'
+    publishVersion = '1.0.0'
+    userOrg='qustjk'
+    repoName = 'clib'
+    groupId = 'cn.wakplayer'
+    website = 'https://github.com/wakjk/videoplayer'
+}
 
 android {
 
@@ -32,4 +44,6 @@ dependencies {
     implementation 'com.facebook.fresco:fresco:1.10.0'
 }
 
-apply from: '../bintray.gradle'
+ext {
+    javadocTitle = 'videoplayer'
+}
