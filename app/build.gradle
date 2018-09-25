@@ -19,11 +19,9 @@ android {
     defaultConfig {
         applicationId "com.demo.videoplayer"
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        targetSdkVersion rootProject.ext.compileSdkVersion
         versionCode 1
         versionName "1.0.0"
-        renderscriptTargetApi rootProject.ext.renderscriptTargetApi
-        renderscriptSupportModeEnabled true
         signingConfig signingConfigs.release
     }
     buildTypes {
@@ -55,7 +53,5 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:$supportLibVersion"
-    implementation 'cn.wakplayer:player:1.0.0'
-
 }
 
